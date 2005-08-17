@@ -5,7 +5,7 @@ use warnings;
 
 use Games::Sudoku::Cell;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub new {
     my $class = shift;
@@ -92,7 +92,7 @@ sub solve {
 	my $sb;
 
 	foreach my $b (@$branches) {
-	    $sb = new Sudoku::Board(
+	    $sb = new Games::Sudoku::Board(
 				    $self->_name."Branch(@$b)",
 				    $self->debug,
 				    $self->pause
