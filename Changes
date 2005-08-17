@@ -1,0 +1,6 @@
+Revision history for Perl extension Sudoku.
+
+0.01  Mon Aug 15 17:12:00 2005
+	- original version; created by h2xs 1.23 with options
+		-AX -n Sudoku
+

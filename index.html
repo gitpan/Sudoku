@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Sudoku - Perl extension for solving Su Doku puzzles</title>
+<link rev="made" href="mailto:root@localhost" />
+</head>
+
+<body style="background-color: white">
+
+<p><a name="__index__"></a></p>
+<!-- INDEX BEGIN -->
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<li><a href="#todo">TODO</a></li>
+	<li><a href="#author">AUTHOR</a></li>
+	<li><a href="#copyright_and_license">COPYRIGHT AND LICENSE</a></li>
+</ul>
+<!-- INDEX END -->
+
+<hr />
+<p>
+</p>
+<h1><a name="name">NAME</a></h1>
+<p>Sudoku - Perl extension for solving Su Doku puzzles</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<pre>
+  use Games::Sudoku::Board;</pre>
+<pre>
+  my $game = new Games::Sudoku::Board('Game 1', $debug, $pause);</pre>
+<pre>
+  $game-&gt;initFromFile($fname);</pre>
+<pre>
+  $game-&gt;displayBoard();</pre>
+<pre>
+  $game-&gt;solve();</pre>
+<pre>
+  $game-&gt;displayBoard();</pre>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<pre>
+  This module solves Su Doku puzzles.
+   
+  The puzzle must be stored in a file of the following format :
+nine lines of nine characters where unknown characters presented by zero, 
+e.g</pre>
+<p>
+<table border=0 cellpadding=1>
+<tr><td>000050380
+<tr><td>035006090
+<tr><td>000100000
+<tr><td>704000001
+<tr><td>006872000
+<tr><td>000504600
+<tr><td>059700800
+<tr><td>107285000
+<tr><td>000040700
+</table>
+</p>
+<p> <b>More examples</b> can be found in example directory that comes with distribution</p>
+<pre>
+  The code then might look like:</pre>
+<p>#!/usr/bin/perl</p>
+<p>use strict;</p>
+<p>use warnings;</p>
+<p>use Games::Sudoku::Board;</p>
+<p>use Getopt::Long;</p>
+<p>my ($fname, $pause, $debug) = ('', 0, 0);</p>
+<p>GetOptions('file=s' =&gt; \$fname,
+          'pause' =&gt; \$pause,
+          'debug' =&gt; \$debug);</p>
+<p>my $game = new Games::Sudoku::Board;</p>
+<p>$game-&gt;initFromFile($fname);</p>
+<p>$game-&gt;debug($debug);</p>
+<p>$game-&gt;pause($pause);</p>
+<p>$game-&gt;displayBoard();</p>
+<p>$game-&gt;solve();</p>
+<p>$game-&gt;displayBoard();</p>
+<p></p>
+<p>
+</p>
+<hr />
+<h1><a name="todo">TODO</a></h1>
+<p>- Add board init from a data structure</p>
+<p>- Add error handling and invalid layout capture</p>
+<p>- Add support for 16x16 boards</p>
+<p></p>
+<p>
+</p>
+<hr />
+<h1><a name="author">AUTHOR</a></h1>
+<pre>
+    Eugene Kulesha, &lt;kulesha@gmail.com&gt;</pre>
+<p>
+</p>
+<hr />
+<h1><a name="copyright_and_license">COPYRIGHT AND LICENSE</a></h1>
+<p>Copyright (C) 2005 by Eugene Kulesha</p>
+<p>This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.8.4 or,
+at your option, any later version of Perl 5 you may have available.
+
+</p>
+<pre>
+
+
+</pre>
+
+</body>
+
+</html>
