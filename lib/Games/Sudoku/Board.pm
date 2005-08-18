@@ -5,10 +5,14 @@ use warnings;
 
 use Games::Sudoku::Cell;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub new {
-    my $class = shift;
+    my $caller = shift;
+    my $caller_is_obj = ref($caller);
+
+    my $class = $caller_is_obj || $caller;
+
     my $self = {
 	NAME => shift || 'Root ',
 	DEBUG => shift || 0,
@@ -92,11 +96,11 @@ sub solve {
 	my $sb;
 
 	foreach my $b (@$branches) {
-	    $sb = new Games::Sudoku::Board(
-				    $self->_name."Branch(@$b)",
-				    $self->debug,
-				    $self->pause
-);
+	    $sb = $self->new(
+			     $self->_name."Branch(@$b)",
+			     $self->debug,
+			     $self->pause
+			     );
 	    foreach my $c (@{$self->{BOARD}}) {
 		my $index = ($c->row - 1) * 9 + $c->col - 1;
 		$sb->{BOARD}->[$index]->value = $c->value;
